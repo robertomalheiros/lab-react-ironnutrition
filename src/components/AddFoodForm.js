@@ -19,9 +19,10 @@ function AddFoodForm({ foods, setFoods }) {
     setFoods([...foods, form]);
 
     setForm({
-      about: '',
-      difficulty: '0',
-      message: '',
+      name: '',
+      image: '',
+      calories: '',
+      servings: '',
     });
   }
 

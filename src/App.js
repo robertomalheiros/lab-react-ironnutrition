@@ -7,11 +7,12 @@ import { useState } from 'react';
 
 function App() {
   const [foods, setFoods] = useState(AllFoods);
+  const [hidden, setHidden] = useState(true);
   return (
     <div className="App">
-      <AddFoodForm foods={foods} setFoods={setFoods} />
+      {!hidden ? <AddFoodForm foods={foods} setFoods={setFoods} /> : null}
 
-      <Button> Hide Form / Add New Food </Button>
+      <Button onClick={() => setHidden((s) => !s)}>Add New Food</Button>
 
       <Search foods={foods} setFoods={setFoods} />
 

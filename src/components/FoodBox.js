@@ -6,8 +6,6 @@ function FoodBox({ food, foods, setFoods }) {
     let filteredFoods = foods.filter((food) => {
       return food.name !== name;
     });
-    /* só o que vai ENTRAR pra array filtrada é TUDO OQUE FOR DIFERENTE DO BOTÃO QUE EU CLIQUEI */
-
     setFoods(filteredFoods);
   }
   return (
@@ -24,8 +22,7 @@ function FoodBox({ food, foods, setFoods }) {
           <b>Total Calories: {food.calories * food.servings} </b> kcal
         </p>
         <Button type="primary" onClick={() => handleDelete(food.name)}>
-          {' '}
-          Delete{' '}
+          Delete
         </Button>
       </Card>
     </Col>

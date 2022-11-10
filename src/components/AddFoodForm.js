@@ -1,13 +1,28 @@
 import { Divider, Input } from 'antd';
-
+import { useState } from 'react';
 // Iteration 4
-function AddFoodForm({ foods, setFood }) {
+function AddFoodForm({ foods, setFoods }) {
+  const [form, setForm] = useState({
+    name: '',
+    image: '',
+    calories: '',
+    servings: '',
+  });
+
   function handleChange(e) {
-    setFood({ ...foods, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    setFoods([...foods, form]);
+
+    setForm({
+      about: '',
+      difficulty: '0',
+      message: '',
+    });
   }
 
   return (

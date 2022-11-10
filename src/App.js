@@ -7,28 +7,19 @@ import { useState } from 'react';
 
 function App() {
   const [foods, setFoods] = useState(AllFoods);
-  console.log(foods);
   return (
     <div className="App">
-      <AddFoodForm />
+      <AddFoodForm foods={foods} setFoods={setFoods} />
 
       <Button> Hide Form / Add New Food </Button>
 
-      <Search />
+      <Search foods={foods} setFoods={setFoods} />
 
       <Divider>Food List</Divider>
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
         {foods.map((element) => {
-          return (
-            <FoodBox
-              image={element.image}
-              name={element.name}
-              calories={element.calories}
-              servings={element.servings}
-              key={element.name}
-            />
-          );
+          return <FoodBox food={element} foods={foods} setFoods={setFoods} />;
         })}{' '}
         />
       </Row>
